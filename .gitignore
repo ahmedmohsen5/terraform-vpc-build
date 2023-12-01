@@ -1,0 +1,7 @@
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.DS_Store
+cash.log
+terraformrc
+terraform.rc
