@@ -6,3 +6,5 @@ variable "private_key" {}
 variable "avail_zone" {}
 variable "vpc_id" {}
 variable "subnet_id" {}
+
+variable "ssh-name" {}

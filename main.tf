@@ -32,16 +32,30 @@ module "subnet-module" {
 }
 
 
-module "myapp-server" {
+module "server2" {
     source = "./modules/webserver"
     my-ip = var.my-ip
-    env_prefix = var.env_prefix
+    env_prefix = "server2"
     instance_type = var.instance_type
     public_key_location = var.public_key_location
     private_key = var.private_key
     avail_zone = var.avail_zone
     vpc_id = aws_vpc.myapp-vpc.id
     subnet_id = module.subnet-module.subnet.id
-
-  
+    ssh-name = "server-ssh1"
 }
+
+
+module "server1" {
+    source = "./modules/webserver"
+    my-ip = var.my-ip
+    env_prefix = "server1"
+    instance_type = var.instance_type
+    public_key_location = var.public_key_location
+    private_key = var.private_key
+    avail_zone = var.avail_zone
+    vpc_id = aws_vpc.myapp-vpc.id
+    subnet_id = module.subnet-module.subnet.id
+    ssh-name = "server-ssh2"
+}
+

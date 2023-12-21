@@ -39,7 +39,7 @@ data "aws_ami" "linux-image" {
 }
 
 resource "aws_key_pair" "ssh-server" {
-  key_name = "Key-Name"
+  key_name = var.ssh-name
   public_key = "${file(var.public_key_location)}"
 }
 
